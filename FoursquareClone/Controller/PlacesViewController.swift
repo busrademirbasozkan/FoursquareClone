@@ -28,11 +28,13 @@ class PlacesViewController: UIViewController {
     @objc func logoutClicked() {
         PFUser.logOutInBackground { (error) in
             if error != nil {
-                print(error?.localizedDescription)
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
             }else{
                 self.performSegue(withIdentifier: "toMainVC", sender: nil)
             }
-            
         }
     }
     
