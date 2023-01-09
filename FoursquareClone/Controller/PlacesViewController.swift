@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class PlacesViewController: UIViewController {
 
@@ -15,11 +16,25 @@ class PlacesViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addClicked))
+        
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.plain, target: self, action: #selector(logoutClicked))
     }
     
 
     @objc func addClicked(){
         
     }
+    
+    @objc func logoutClicked() {
+        PFUser.logOutInBackground { (error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            }else{
+                self.performSegue(withIdentifier: "toMainVC", sender: nil)
+            }
+            
+        }
+    }
+    
 
 }

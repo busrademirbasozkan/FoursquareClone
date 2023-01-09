@@ -82,6 +82,7 @@
                             <constraint firstItem="dit-xG-uLI" firstAttribute="top" secondItem="diX-iY-ZCu" secondAttribute="bottom" constant="45" id="mBF-Mo-62c"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MqT-oC-0DU"/>
                     <connections>
                         <outlet property="passwordText" destination="dit-xG-uLI" id="Prc-RO-6d5"/>
                         <outlet property="userNameText" destination="diX-iY-ZCu" id="D54-Qa-pav"/>
@@ -117,6 +118,7 @@
                     <navigationItem key="navigationItem" id="ZKv-uD-T8X"/>
                     <connections>
                         <outlet property="tableView" destination="Qdc-mk-SZr" id="BXj-7a-9H0"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="v1R-yX-GBQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PME-ug-8Gd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
