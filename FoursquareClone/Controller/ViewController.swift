@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                     self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                 }else{
                     //Segue
-                   
+                    self.performSegue(withIdentifier: "toPlacesVC", sender: nil)
                 }
             }
         }else{
@@ -52,6 +52,7 @@ class ViewController: UIViewController {
                     self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                 }else{
                     //Segue
+                    self.performSegue(withIdentifier: "toPlacesVC", sender: nil)
                 }
             }
         }else{
