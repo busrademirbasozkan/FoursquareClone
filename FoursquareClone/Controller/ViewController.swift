@@ -22,7 +22,21 @@ class ViewController: UIViewController {
         
     }
 
+    //Sign In İşlemleri
     @IBAction func signInButton(_ sender: Any) {
+        if userNameText.text != "" && passwordText.text != ""{
+            PFUser.logInWithUsername(inBackground: userNameText.text!, password: passwordText.text!) { (user, error) in
+                if error != nil {
+                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                }else{
+                    //Segue
+                   
+                }
+            }
+        }else{
+            makeAlert(titleInput: "Error", messageInput: "UserName or Password is nil")
+        }
+        
     }
     
     
