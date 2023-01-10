@@ -16,6 +16,7 @@
 		E82F6A82296B39EA00A6853D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82F6A80296B39EA00A6853D /* Main.storyboard */; };
 		E82F6A84296B39EC00A6853D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82F6A83296B39EC00A6853D /* Assets.xcassets */; };
 		E82F6A87296B39EC00A6853D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82F6A85296B39EC00A6853D /* LaunchScreen.storyboard */; };
+		E86EAEEA296DE75C00CAD506 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86EAEE9296DE75C00CAD506 /* DetailsViewController.swift */; };
 		E8B546B2296C8072007E0645 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B546B1296C8072007E0645 /* PlacesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		E82F6A83296B39EC00A6853D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82F6A86296B39EC00A6853D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82F6A88296B39EC00A6853D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E86EAEE9296DE75C00CAD506 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E8B546B1296C8072007E0645 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +91,6 @@
 				E82F6A90296B3A0F00A6853D /* SupportingFiles */,
 				E82F6A8F296B3A0200A6853D /* View */,
 				E82F6A8E296B39F600A6853D /* Controller */,
-				E82937D8296DE13500BBF0BB /* MapViewController.swift */,
 			);
 			path = FoursquareClone;
 			sourceTree = "<group>";
@@ -97,9 +98,11 @@
 		E82F6A8E296B39F600A6853D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E82937D8296DE13500BBF0BB /* MapViewController.swift */,
 				E82937D6296DDE7E00BBF0BB /* AddPlaceViewController.swift */,
 				E8B546B1296C8072007E0645 /* PlacesViewController.swift */,
 				E82F6A7E296B39EA00A6853D /* ViewController.swift */,
+				E86EAEE9296DE75C00CAD506 /* DetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				E82937D9296DE13500BBF0BB /* MapViewController.swift in Sources */,
 				E8B546B2296C8072007E0645 /* PlacesViewController.swift in Sources */,
 				E82F6A7F296B39EA00A6853D /* ViewController.swift in Sources */,
+				E86EAEEA296DE75C00CAD506 /* DetailsViewController.swift in Sources */,
 				E82F6A7B296B39EA00A6853D /* AppDelegate.swift in Sources */,
 				E82F6A7D296B39EA00A6853D /* SceneDelegate.swift in Sources */,
 			);
