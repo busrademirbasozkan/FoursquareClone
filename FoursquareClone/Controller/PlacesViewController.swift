@@ -25,6 +25,7 @@ class PlacesViewController: UIViewController {
         
     }
     
+    // Log out işlemleri
     @objc func logoutClicked() {
         PFUser.logOutInBackground { (error) in
             if error != nil {
