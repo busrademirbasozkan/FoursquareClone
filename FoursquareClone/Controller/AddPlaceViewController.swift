@@ -23,6 +23,7 @@ class AddPlaceViewController: UIViewController {
 
     
     @IBAction func nextButton(_ sender: Any) {
+        performSegue(withIdentifier: "toMapVC", sender: nil)
     }
     
 }
