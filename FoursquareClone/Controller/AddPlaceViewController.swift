@@ -28,7 +28,6 @@ class AddPlaceViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-
     
     @IBAction func nextButton(_ sender: Any) {
         if nameText.text != "" && typeText.text != "" && atmosphereText.text != "" {
