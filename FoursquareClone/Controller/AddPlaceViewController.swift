@@ -17,13 +17,21 @@ class AddPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Klavyeyi herhangi bir yere tıklayınca kapatmak için
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(gesture)
+        
     }
     
 
     
     @IBAction func nextButton(_ sender: Any) {
         performSegue(withIdentifier: "toMapVC", sender: nil)
+    }
+    
+    
+    @objc func hideKeyboard(){
+        view.endEditing(true)
     }
     
 }
