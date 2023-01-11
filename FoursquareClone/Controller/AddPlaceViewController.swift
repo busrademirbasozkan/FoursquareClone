@@ -31,7 +31,22 @@ class AddPlaceViewController: UIViewController, UIImagePickerControllerDelegate,
 
     
     @IBAction func nextButton(_ sender: Any) {
-        performSegue(withIdentifier: "toMapVC", sender: nil)
+        if nameText.text != "" && typeText.text != "" && atmosphereText.text != "" {
+            if let selectImage = imageView.image{
+                PlaceModel.sharedInstance.placeName = nameText.text!
+                PlaceModel.sharedInstance.placeType = typeText.text!
+                PlaceModel.sharedInstance.placeAtmosphere = atmosphereText.text!
+                PlaceModel.sharedInstance.placeImage = imageView.image!
+            }
+            performSegue(withIdentifier: "toMapVC", sender: nil)
+        }else{
+            let alert = UIAlertController(title: "Error", message: "Please Check Your Information", preferredStyle: UIAlertController.Style.alert)
+            let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+            alert.addAction(okButton)
+            present(alert, animated: true)
+        }
+        
+        
     }
     
     //Klavyeyi kapatmak için
