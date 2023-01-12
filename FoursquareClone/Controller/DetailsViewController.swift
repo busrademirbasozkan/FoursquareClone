@@ -93,6 +93,7 @@ class DetailsViewController: UIViewController , MKMapViewDelegate, CLLocationMan
         }
     }
     
+    //pinin özelleşmesi
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
@@ -110,6 +111,23 @@ class DetailsViewController: UIViewController , MKMapViewDelegate, CLLocationMan
         }
         return pinView
     }
-    
+    //pinin üzerinden navigasyyona bağlanma
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if self.choosenLatitude != 0.0 && self.choosenLongitude != 0.0 {
+            let requestLocation = CLLocation(latitude: self.choosenLatitude, longitude: self.choosenLongitude)
+            
+            CLGeocoder().reverseGeocodeLocation(requestLocation) { (placemarks, error) in
+                if let placemark = placemarks {
+                    if placemark.count > 0 {
+                        let mkPlacemark = MKPlacemark(placemark: placemark[0])
+                        let item = MKMapItem(placemark: mkPlacemark)
+                        item.name = self.placeLabel.text
+                        let launchOption = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
+                        item.openInMaps(launchOptions: launchOption)
+                    }
+                }
+            }
+        }
+    }
     
 }
