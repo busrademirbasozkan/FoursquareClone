@@ -84,7 +84,6 @@ class MapViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDe
             }else{
                 self.performSegue(withIdentifier: "fromMaptoPlaces", sender: nil)
             }
-            
         }
     }
     
