@@ -8,13 +8,13 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Parse
 
 class MapViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapKit: MKMapView!
     var locationManager = CLLocationManager()
-    var selectLatitude = ""
-    var selectLongitude = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +54,38 @@ class MapViewController: UIViewController,MKMapViewDelegate, CLLocationManagerDe
             annotation.subtitle = PlaceModel.sharedInstance.placeType
             self.mapKit.addAnnotation(annotation)
             
-            self.selectLatitude = String(touchedCoordinate.latitude)
-            self.selectLongitude = String(touchedCoordinate.longitude)
+            PlaceModel.sharedInstance.placeLatitude = String(touchedCoordinate.latitude)
+            PlaceModel.sharedInstance.placeLongitude = String(touchedCoordinate.longitude)
         }
     }
 
     //seçilen lokasyonu kaydetme
     @objc func saveClicked() {
+        //parse'a konumu kaydetme işlemi
+        let placeModel = PlaceModel.sharedInstance
         
+        let object = PFObject(className: "Places")
+        object["PlaceName"] = placeModel.placeName
+        object["PlaceType"] = placeModel.placeType
+        object["PlaceAtmosphere"] = placeModel.placeAtmosphere
+        object["PlaceLatitude"] = placeModel.placeLatitude
+        object["PlaceLongitude"] = placeModel.placeLongitude
+        //parse'a görsel kaydetmek
+        if let data = placeModel.placeImage.jpegData(compressionQuality: 0.5){
+            object["PlaceImage"] = PFFileObject(name: "image.jpg", data: data)
+        }
+        
+        object.saveInBackground { (success, error) in
+            if error != nil {
+                let alert = UIAlertController(title: "Error!", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+                alert.addAction(okButton)
+                self.present(alert, animated: true)
+            }else{
+                self.performSegue(withIdentifier: "fromMaptoPlaces", sender: nil)
+            }
+            
+        }
     }
     
     //lokasyon seçmeden geri dönme
