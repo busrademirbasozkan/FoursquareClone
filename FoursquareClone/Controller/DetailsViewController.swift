@@ -24,9 +24,8 @@ class DetailsViewController: UIViewController , MKMapViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         getData()
-        
+        detailsMapKit.delegate = self
     }
     
 
@@ -90,11 +89,27 @@ class DetailsViewController: UIViewController , MKMapViewDelegate, CLLocationMan
                         self.detailsMapKit.addAnnotation(annotation)
                     }
                 }
-                
             }
-            
         }
-        
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseId = "Pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier:reuseId)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = UIColor.black
+            let button = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            pinView!.rightCalloutAccessoryView = button
+        }else{
+            pinView?.annotation = annotation
+        }
+        return pinView
+    }
+    
     
 }
