@@ -16,6 +16,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var atmosphereLabel: UILabel!
     @IBOutlet weak var detailsMapKit: MKMapView!
+    var choosenPlaceID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,6 +13,7 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var placeNameArray = [String]()
     var placeIDArray = [String]()
+    var selectedPlaceID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                     for object in objects! {
                         if let placeName = object.object(forKey: "PlaceName") as? String{
-                            if let placeID = object.objectId as? String{
+                            if let placeID = object.objectId {
                                 self.placeNameArray.append(placeName)
                                 self.placeIDArray.append(placeID)
                             }
@@ -53,6 +54,19 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    //istenen cell tıklanınca yapılacak işlemler
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedPlaceID = placeIDArray[indexPath.row]
+        self.performSegue(withIdentifier: "toDetailVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            let destination = segue.destination as! DetailsViewController
+            destination.choosenPlaceID = selectedPlaceID
         }
     }
     
