@@ -121,7 +121,7 @@
                         <outlet property="tableView" destination="Qdc-mk-SZr" id="BXj-7a-9H0"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="v1R-yX-GBQ"/>
                         <segue destination="Bhd-d3-3QX" kind="show" identifier="toAddVC" id="HHv-zD-bCt"/>
-                        <segue destination="Znm-dU-qrK" kind="presentation" identifier="toDetailVC" modalPresentationStyle="fullScreen" id="AR7-LX-aXY"/>
+                        <segue destination="Znm-dU-qrK" kind="show" identifier="toDetailVC" id="AR7-LX-aXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PME-ug-8Gd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -220,7 +220,7 @@
             <objects>
                 <viewController id="Znm-dU-qrK" customClass="DetailsViewController" customModule="FoursquareClone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pvE-vQ-QsE">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4KH-ij-ISV">
@@ -342,7 +342,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HHv-zD-bCt"/>
         <segue reference="UpC-DZ-fYh"/>
     </inferredMetricsTieBreakers>
     <resources>

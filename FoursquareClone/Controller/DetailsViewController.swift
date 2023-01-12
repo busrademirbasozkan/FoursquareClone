@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import Parse
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController , MKMapViewDelegate, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var detailsImageView: UIImageView!
@@ -75,9 +75,19 @@ class DetailsViewController: UIViewController {
                                         self.detailsImageView.image = UIImage(data: data!)
                                     }
                                 }
-                                
                             }
                         }
+                        
+                        //Maps Ayarları
+                        let location = CLLocationCoordinate2D(latitude: self.choosenLatitude, longitude: self.choosenLongitude)
+                        let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+                        let region = MKCoordinateRegion(center: location, span: span)
+                        self.detailsMapKit.setRegion(region, animated: true)
+                        
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = location
+                        annotation.title = self.placeLabel.text
+                        self.detailsMapKit.addAnnotation(annotation)
                     }
                 }
                 
