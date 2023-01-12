@@ -80,7 +80,7 @@ class DetailsViewController: UIViewController , MKMapViewDelegate, CLLocationMan
                         
                         //Maps Ayarları
                         let location = CLLocationCoordinate2D(latitude: self.choosenLatitude, longitude: self.choosenLongitude)
-                        let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+                        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
                         let region = MKCoordinateRegion(center: location, span: span)
                         self.detailsMapKit.setRegion(region, animated: true)
                         
